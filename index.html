@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toey</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,8 +10,63 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>TIC TAC TOEY</h1>
+
+      <!--  <div class=row>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      <div class=row>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+      <div class=row>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+      </div> -->
+
+      <div class='main'>
+          <div class='container-fluid row no-gutters justify-content-center'>
+            <div class='col-4 box grey'></div>
+            <div class='col-4 box grey'></div>
+            <div class='col-4 box grey'></div>
+            <div class='w-100'></div>
+            <div class='col-4 box grey'></div>
+            <div class='col-4 box grey'></div>
+            <div class='col-4 box grey'></div>
+            <div class='w-100'></div>
+            <div class='col-4 box grey'></div>
+            <div class='col-4 box grey'></div>
+            <div class='col-4 box grey'></div>
+          </div>
+        </div>
+
+        <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'>
+          Press this button!
+        </button>
+
+        <div class='modal fade' id='exampleModal'>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Example Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&otimes;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                This is your modal!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </body>
 </html>
