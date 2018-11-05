@@ -31,3 +31,24 @@ body {
 .main {
   margin: 150px;
 }
+
+/* $black: #000;
+
+.border {
+  border: 3px solid $black;
+  margin: 20px;
+  padding: 20px;
+}
+
+#message {
+  font-size: 40px;
+  text-align: center;
+
+  &.success {
+    background-color: #D8BFD8;
+  }
+
+  &.failure {
+    background-color: #FF4500;
+  }
+}
