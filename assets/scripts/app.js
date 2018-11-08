@@ -35,6 +35,7 @@
 
 $(() => {
   // your JS code goes here
+  let gameBoard = ['', '', '', '', '', '', '', '', '']
   const playerX = 'X'
   const playerO = 'O'
 
@@ -55,10 +56,14 @@ $(() => {
     if (currentMove % 2 === 1) {
       event.target.innerHTML = playerX
       // event.target.style.color = 'red'
+      gameBoard = $('.box').map((i, box) => box.innerHTML).get()
+      console.log(gameBoard)
       currentMove++
     } else {
       event.target.innerHTML = playerO
       // event.target.style.color = 'green'
+      gameBoard = $('.box').map((i, box) => box.innerHTML).get()
+      console.log(gameBoard)
       currentMove--
     }
     // $(this).off('click') TRIED USING .off
