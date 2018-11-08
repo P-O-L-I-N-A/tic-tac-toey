@@ -51,7 +51,7 @@ $(() => {
   box.on('click', function () {
     movesCompleted++
     // finding odd numbers
-// if (event.target.innerHTML === '') { BEGIN FUNCTION FOR SECOND CLICK
+    // if (event.target.innerHTML === '') { BEGIN FUNCTION FOR SECOND CLICK
     if (currentMove % 2 === 1) {
       event.target.innerHTML = playerX
       // event.target.style.color = 'red'
