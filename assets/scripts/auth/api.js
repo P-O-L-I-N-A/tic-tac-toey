@@ -40,9 +40,14 @@ const signOut = () => {
   })
 }
 
+const newGame = () => {
+  return
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  newGame
 }

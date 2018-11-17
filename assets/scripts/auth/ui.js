@@ -60,6 +60,13 @@ const signOutFailure = error => {
   console.error('signOutFailure ran. Error is :', error)
 }
 
+const newGame = () => {
+  // $('#message').text('Error on sign out')
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
+  console.log('New Game')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -68,5 +75,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  newGame
 }
