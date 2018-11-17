@@ -38,9 +38,16 @@ const onSignOut = event => {
 }
 
 const onNewGame = event => {
+  console.log('new game')
   event.preventDefault()
-  api.newGame()
-    .then(ui.newGame)
+  //  api.newGame()
+  //    .then(ui.newGame)
+  ui.newGame()
+}
+
+const onBoxClick = event => {
+  event.preventDefault()
+  ui.boxClick(event)
 }
 
 module.exports = {
@@ -48,5 +55,6 @@ module.exports = {
   onSignIn,
   onChangePassword,
   onSignOut,
-  onNewGame
+  onNewGame,
+  onBoxClick
 }
