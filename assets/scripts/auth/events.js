@@ -19,6 +19,11 @@ const onSignIn = event => {
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(() =>
+      api.newGame()
+        .then(ui.newGame)
+        .catch(ui.signInFailure) // TODO: change later
+    )
     .catch(ui.signInFailure)
 }
 
@@ -40,14 +45,18 @@ const onSignOut = event => {
 const onNewGame = event => {
   console.log('new game')
   event.preventDefault()
-  //  api.newGame()
-  //    .then(ui.newGame)
-  ui.newGame()
+  api.newGame()
+    .then(ui.newGame)
+    .catch(ui.signInFailure) // TODO: change later
 }
 
 const onBoxClick = event => {
   event.preventDefault()
-  ui.boxClick(event)
+  const game = ui.boxClick(event)
+  console.log('move', game)
+  api.saveGame({game})
+    .then(data => { console.log('UpdatedGame', data) })
+    .catch(ui.signInFailure) // TODO: change later
 }
 
 module.exports = {

@@ -18,10 +18,12 @@ const signUpFailure = error => {
 
 const signInSuccess = data => {
   store.user = data.user
+  $('#playerName').text(data.user.email)
   $('#message').text('Signed in successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('signInSuccess ran. Data is :', data)
+  $('#main').removeClass('d-none')
 }
 
 const signInFailure = error => {
@@ -60,11 +62,9 @@ const signOutFailure = error => {
   console.error('signOutFailure ran. Error is :', error)
 }
 
-const newGame = () => {
-  // $('#message').text('Error on sign out')
-  // $('#message').removeClass()
-  // $('#message').addClass('failure')
-  console.log('New Game')
+const newGame = game => {
+  console.log('New Game', game)
+  store.game = game.game
   gameBoard = ['', '', '', '', '', '', '', '', '']
   gameWon = false
   currentMove = 1
@@ -75,7 +75,6 @@ let gameBoard = ['', '', '', '', '', '', '', '', '']
 const playerX = 'X'
 const playerO = 'O'
 let currentMove = 1
-let movesCompleted = 0
 let gameWon = false
 const winnerContainer = $('.winner')
 const reset = $('.reset')
@@ -95,34 +94,20 @@ const boxClick = () => {
     return
   }
   let currentPlayer
-  movesCompleted++
   if (event.target.innerHTML === '') {
     // if player_o clicks check if they are a winner, if player_x clicks do same
     if (currentMove % 2 === 1) {
       currentPlayer = playerX
       event.target.innerHTML = playerX
       gameBoard = $('.box').map((i, box) => box.innerHTML).get()
-      // console.log(gameBoard)
       currentMove++
     } else {
       currentPlayer = playerO
       event.target.innerHTML = playerO
       gameBoard = $('.box').map((i, box) => box.innerHTML).get()
-      // console.log(gameBoard)
       currentMove++
     }
   }
-
-  // reset.on('click', function (e) {
-  //   const moves = Array.prototype.slice.call($('.inner'))
-  //   moves.map((m) => {
-  //     m.innerHTML = ''
-  //   })
-  //   winnerContainer.html('')
-  //   winnerContainer.css('display', 'none')
-  //   currentMove = 1
-  //   movesCompleted = 0
-  // })
 
   const winCombos = [
     [0, 1, 2],
@@ -137,34 +122,16 @@ const boxClick = () => {
 
   function checkForWinner (player) {
     console.log(gameBoard)
-    return gameBoard[0] === player
-    // const moves = Array.prototype.slice.call($('.box'))
-    // const results = moves.map(function (box) {
-    //   return box.innerHTML
-    // })
-
-    // return winCombos.find(function (combo) {
-    //   if (gameBoard[combo[0]] !== '' &&
-    // gameBoard[combo[1]] !== '' &&
-    // gameBoard[combo[2]] !== '' &&
-    // gameBoard[combo[0]] === gameBoard[combo[1]] && gameBoard[combo[1]] ===
-    // gameBoard[combo[2]]) {
-    //     return true
-    //     console.log('true')
-    //   } else {
-    //     return false
-    //     console.log('false')
-    //   }
-    // })
+    const found = winCombos.find(w => {
+      return gameBoard[w[0]] === player && gameBoard[w[1]] === player && gameBoard[w[2]] === player
+    })
+    return found !== undefined
   }
-
-  // var found = array.find(function(element) {
-  //   return element > 20;
-  // });
-
-  if (checkForWinner(currentPlayer)) {
+  const over = checkForWinner(currentPlayer)
+  if (over) {
     declareWinner(currentPlayer)
   }
+  return {cell: {index: event.target.id - 1, value: currentPlayer}, over}
 }
 
 module.exports = {
