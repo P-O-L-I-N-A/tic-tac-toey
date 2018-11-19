@@ -9,7 +9,7 @@ const signUpSuccess = data => {
   $('#password').val('')
   $('#password2').val('')
   $('#email').val('')
-  console.log('signUpSuccess ran. Data is :', data)
+  // console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = error => {
@@ -148,6 +148,7 @@ const boxClick = () => {
   const over = checkForWinner(currentPlayer)
   if (over) {
     declareWinner(currentPlayer)
+    $('.winner')
   }
   return {cell: {index: event.target.id - 1, value: currentPlayer}, over}
 }
