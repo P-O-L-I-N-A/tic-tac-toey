@@ -89,7 +89,7 @@ function declareWinner (winner) {
 }
 
 const boxClick = () => {
-  console.log('BoxClicked')
+  // console.log('BoxClicked')
   if (gameWon) {
     return
   }
@@ -106,6 +106,13 @@ const boxClick = () => {
       event.target.innerHTML = playerO
       gameBoard = $('.box').map((i, box) => box.innerHTML).get()
       currentMove++
+    }
+    if (currentPlayer === playerX) {
+      $('.player_o').hide()
+      $('.player_x').show()
+    } else {
+      $('.player_x').hide()
+      $('.player_o').show()
     }
   }
 
