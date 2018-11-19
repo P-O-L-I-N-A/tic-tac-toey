@@ -6,6 +6,9 @@ const signUpSuccess = data => {
   $('#message').text('Signed up successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#password').val('')
+  $('#password2').val('')
+  $('#email').val('')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -24,6 +27,10 @@ const signInSuccess = data => {
   $('#message').addClass('success')
   console.log('signInSuccess ran. Data is :', data)
   $('#main').removeClass('d-none')
+  $('#sign_up').hide()
+  $('#sign_in').hide()
+  $('#sign_out').removeClass('d-none')
+  $('#change_password').removeClass('d-none')
 }
 
 const signInFailure = error => {
@@ -37,6 +44,8 @@ const changePasswordSuccess = data => {
   $('#message').text('Password changed successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#oldPassword').val('')
+  $('#newPassword').val('')
   console.log('changePasswordSuccess ran. Data is :', data)
 }
 
@@ -69,6 +78,8 @@ const newGame = game => {
   gameWon = false
   currentMove = 1
   $('#board div').text('')
+  $('.player_o').removeClass('d-none')
+  $('.player_x').removeClass('d-none')
 }
 
 let gameBoard = ['', '', '', '', '', '', '', '', '']

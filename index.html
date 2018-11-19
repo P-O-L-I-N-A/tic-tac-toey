@@ -14,10 +14,11 @@
     </head>
     <body>
       <h1>TIC TAC TOEY</h1>
+      <h1>Let's Get Ready To Rumble!</h1>
 
       <h2 id=playerName> Please Sign In</h2>
-      <h3 class=player_o>Player O</h3>
-      <h3 class=player_x>Player X</h3>
+      <h3 class='player_o d-none'>Player O</h3>
+      <h3 class='player_x d-none'>Player X</h3>
 
 
       <div id=main class='main d-none'>
@@ -36,7 +37,7 @@
           </div>
 
 
-        <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'>
+        <!-- <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'>
           Press this button!
         </button>
 
@@ -58,14 +59,11 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <button type='button' class='btn btn-primary' id="new_game">
           New Game!
         </button>
-
-        <h1>Let's Get Ready To Rumble!</h1>
-        <h2></h2>
 
         </div>
 
@@ -73,10 +71,10 @@
 
         <form id="sign_up" class="border">
           <fieldset>
-            <legend>Sign Up!</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Password">
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <legend></legend>
+            <input type="text" name="credentials[email]" placeholder="Email" id='email'>
+            <input type="password" name="credentials[password]" placeholder="Password" id='password'>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id='password2'>
             <input type="submit" value="Sign up!">
 
           </fieldset>
@@ -84,7 +82,7 @@
 
         <form id="sign_in" class="border">
           <fieldset>
-            <legend>Sign In!</legend>
+            <legend></legend>
             <input type="text" name="credentials[email]" placeholder="Email">
             <input type="password" name="credentials[password]" placeholder="Password">
             <input type="submit" value="Sign In!">
@@ -92,19 +90,19 @@
           </fieldset>
         </form>
 
-        <form id="sign_out" class="border">
+        <form id="sign_out" class='border d-none'>
           <fieldset>
-            <legend>Sign Out!</legend>
+            <legend></legend>
             <input type="submit" value="Sign Out!">
 
           </fieldset>
         </form>
 
-        <form id="change_password" class="border">
+        <form id="change_password" class='border d-none'>
           <fieldset>
-            <legend>Change Password!</legend>
-            <input type="password" name="passwords[old]" placeholder="Old Password">
-            <input type="password" name="passwords[new]" placeholder="New Password">
+            <legend></legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password" id='oldPassword'>
+            <input type="password" name="passwords[new]" placeholder="New Password" id=newPassword>
             <input type="submit" value="Change Password!">
           </fieldset>
         </form>
